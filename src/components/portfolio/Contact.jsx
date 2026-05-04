@@ -43,7 +43,7 @@ export default function Contact() {
 
       if (result.success) {
         toast.success("¡Mensaje enviado con éxito! Te responderé pronto.");
-        setForm({ name: "", email: "", message: "" }); // Limpiar formulario
+        setForm({ name: "", email: "", message: "" });
       } else {
         toast.error("Hubo un error al enviar. Inténtalo de nuevo.");
       }
