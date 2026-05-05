@@ -50,22 +50,22 @@ export const experiences = [
 export const artworks = [
    { id: "a1", title: "Personaje original", year: "2025", medium: "Concept Art",
     image: "/juan.png",
-    description: "Escena de bosque nocturno para un proyecto de narrativa visual." },
+    description: "Personaje original basado en un buffon siniestro." },
   { id: "a2", title: "Personaje original", year: "2025", medium: "Pintura Digital",
     image: "/gdlvb.png",
-    description: "Retrato conceptual donde el azul cobalto construye silencio y distancia." },
+    description: "Pintura digital de un personaje original." },
     { id: "a3", title: "Davy Jones", year: "2022-2023", medium: "Ilustración Tradicional",
     image: "/davy-jones.png",
     description: "Tratamiento a tinta del personaje Davy Jones en estilo semi-realista." },
   { id: "a4", title: "Ichigo Vasto Lorde", year: "2025", medium: "Ilustración Digital",
     image: "/ichigo-vasto-lorde.png",
-    description: "Captura del proceso creativo sobre tableta gráfica." },
+    description: "Fan art del personaje Ichigo de Bleach." },
   { id: "a5", title: "Personaje original", year: "2024", medium: "Ilustración Digital",
     image: "/oc.png",
-    description: "Estudio dramático sobre identidad y luz direccional." },
+    description: "Ilustración de un personaje original en estilo semi-realista." },
   { id: "a6", title: "Personaje original", year: "2023", medium: "Ilustración Digital",
     image: "/skltn.png",
-    description: "Serie Umbra — retratos a contraluz en tonos fríos." },
+    description: "Ilustración de un personaje original en estilo semi-realista." },
 ];
 
 export const projects = [
