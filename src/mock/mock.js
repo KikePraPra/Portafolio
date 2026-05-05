@@ -7,12 +7,12 @@ export const profile = {
   longBio: "Soy un desarrollador apasionado por construir productos web elegantes y de alto rendimiento. Cuando no estoy escribiendo código o estudiando sobre servidores, dibujo ilustraciones digitales que exploran la figura humana, el color y reflejan mi visión de la estética y el detalle. Este portafolio es mi forma de expresar estas 2 pasiones, el arte y la tecnología.",
   email: "josezumbado02@gmail.com",
   phone: "+506 7111 4365",
-  resumeUrl: "https://youtube.com",
+  resumeUrl: "https://www.linkedin.com/in/josezumbado",
   avatar: "/davy-jones.png",
   socials: {
     github: "https://github.com/KikePraPra",
     instagram: "https://www.instagram.com/dark_spades.art",
-    linkedin: "https://linkedin.com/in/tuusuario",
+    linkedin: "https://www.linkedin.com/in/josezumbado",
     email: "mailto:josezumbado02@gmail.com",
   },
 };
@@ -41,10 +41,10 @@ export const techStack = [
 export const experiences = [
   { id: 1, role: "Encargado de Frontend", company: "I+D UCR, sede del Pacífico", period: "2025 — Presente",
     description: "Lidero el desarrollo de interfaces para productos utilizados por la universidad. Coordinando el flujo de trabajo entre el área de Frontend y Backend para garantizar la calidad y eficiencia.",
-    tags: ["React", "Tailwind CSS", "JavaScript"] },
+    tags: ["React", "Tailwind CSS", "Javascript", "MySQL", "Laravel"] },
   { id: 2, role: "Full Stack Developer & DevOps Engineer", company: "Gestior, UCR", period: "2025 — 2025",
     description: "Desarrollo en varias áreas para un curso universitario, incluyendo la creación de APIs, desarrollo frontend y configuración de infraestructura en despliegues para plataformas como vercel, render y zeabur.",
-    tags: ["Node.js", "MongoDB", "GSAP"] }
+    tags: ["React", "TypeScript", "Tailwind CSS", "MySQL", "Laravel", "Vercel", "Render", "Zeabur"] }
 ];
 
 export const artworks = [
@@ -74,9 +74,9 @@ export const projects = [
     description: "Sistema creado para la gestión de supermercados, sucursales y bodegas, incluyendo control de inventario, facturación, manejo de caja, gráficos, reportes, entre otros. Credenciales: test@example.com 123456",
     tech: ["React", "TypeScript", "Tailwind CSS", "MySQL", "Laravel", "Vercel", "Render", "Zeabur"], links: { live: "https://gestion-inventarios-desarrollo-fron.vercel.app/", repo: "https://github.com/Taller5?tab=repositories" } },
   { id: "p2", title: "Aulas", category: "Web App", year: "2025-Presente",
-    image: "https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?w=1200&q=80",
+    image: "/aulasc.png",
     description: "Plataforma de gestión de aulas, horarios, reservas y ciclos académicos para la Universidad de Costa Rica. Actualmente en desarrollo.",
-    tech: ["React", "Javascript", "MySQL", "Laravel"], links: { live: "#", repo: "#" } },
+    tech: ["React", "Tailwind CSS", "Javascript", "MySQL", "Laravel"], links: { live: "#", repo: "#" } },
 ];
 
 export const navLinks = [
@@ -86,4 +86,5 @@ export const navLinks = [
   { label: "Experiencia", href: "#experience" },
   { label: "Galería", href: "#gallery" },
   { label: "Proyectos", href: "#projects" },
+  { label: "Contacto", href: "#contact" },
 ];

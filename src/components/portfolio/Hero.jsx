@@ -1,7 +1,7 @@
 import React from "react";
 import { profile } from "../../mock/mock";
 import { Button } from "../ui/button";
-import { ArrowDownRight, Github, Instagram, Linkedin, Mail } from "lucide-react";
+import { ArrowUpRight, Github, Instagram, Linkedin, Mail } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -35,8 +35,8 @@ export default function Hero() {
                 asChild
                 className="bg-violet-600 hover:bg-violet-500 text-white border-0 h-12 px-6 shadow-lg shadow-violet-900/40"
               >
-                <a href="#projects" className="inline-flex items-center gap-2">
-                  Ver proyectos <ArrowDownRight className="h-4 w-4" />
+                <a href="/cv-jose-zumbado.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+                  Mira mi cv <ArrowUpRight className="h-4 w-4" />
                 </a>
               </Button>
               <Button
@@ -44,7 +44,7 @@ export default function Hero() {
                 variant="outline"
                 className="h-12 px-6 bg-transparent border-white/15 text-zinc-200 hover:bg-white/5 hover:text-white"
               >
-                <a href="#gallery">Ver galería</a>
+                <a href="#projects">Ver proyectos</a>
               </Button>
             </div>
             <div className="flex items-center gap-4 text-zinc-400">

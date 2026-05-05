@@ -34,7 +34,7 @@ export default function ArtGallery() {
                 <img
                   src={a.image}
                   alt={a.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[700ms] group-hover:scale-[1.04]"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
                 <div className="absolute top-3 right-3 h-8 w-8 grid place-items-center rounded-full bg-zinc-950/60 border border-white/10 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity">
