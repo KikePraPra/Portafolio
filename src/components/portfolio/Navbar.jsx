@@ -59,13 +59,16 @@ export default function Navbar() {
           <LanguageToggle />
         </div>
 
-        <button
-          className="md:hidden p-2 rounded-md text-zinc-300 hover:bg-white/5"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageToggle className="px-2.5 py-1 text-xs rounded-full bg-white/5 border-white/10 whitespace-nowrap" />
+          <button
+            className="p-2 rounded-md text-zinc-300 hover:bg-white/5"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </nav>
 
       {open && (
@@ -82,6 +85,9 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
+            <li className="pt-3 flex justify-center">
+              <LanguageToggle className="px-3 py-2 rounded-full bg-white/5 border-white/10 whitespace-nowrap" />
+            </li>
             <li className="pt-2">
               <a
                 href="#contact"
