@@ -1,8 +1,11 @@
 import React from "react";
 import { profile } from "../../mock/mock";
 import { Github, Instagram, Linkedin, Mail, Ghost } from "lucide-react";
+import { useLanguage } from '../../lib/i18n.jsx'
 
 export default function Footer() {
+  const { t } = useLanguage()
+
   return (
     <footer className="relative border-t border-white/5 mt-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-12">
@@ -18,27 +21,27 @@ export default function Footer() {
               </span>
             </a>
             <p className="mt-4 text-sm text-zinc-500 leading-relaxed max-w-xs">
-              Portafolio de código e ilustración. Construido con React + Tailwind.
+              {t('footer.tagline')}
             </p>
           </div>
 
           <div>
             <div className="font-mono text-[11px] tracking-[0.25em] uppercase text-zinc-500 mb-4">
-              Navegación
+              {t('nav.navigation')}
             </div>
             <ul className="grid grid-cols-2 gap-2 text-sm text-zinc-400">
-              <li><a href="#about" className="hover:text-violet-300">Sobre mí</a></li>
-              <li><a href="#skills" className="hover:text-violet-300">Stack</a></li>
-              <li><a href="#experience" className="hover:text-violet-300">Experiencia</a></li>
-              <li><a href="#gallery" className="hover:text-violet-300">Galería</a></li>
-              <li><a href="#projects" className="hover:text-violet-300">Proyectos</a></li>
-              <li><a href="#contact" className="hover:text-violet-300">Contacto</a></li>
+              <li><a href="#about" className="hover:text-violet-300">{t('navLinks.about')}</a></li>
+              <li><a href="#skills" className="hover:text-violet-300">{t('navLinks.skills')}</a></li>
+              <li><a href="#experience" className="hover:text-violet-300">{t('navLinks.experience')}</a></li>
+              <li><a href="#gallery" className="hover:text-violet-300">{t('navLinks.gallery')}</a></li>
+              <li><a href="#projects" className="hover:text-violet-300">{t('navLinks.projects')}</a></li>
+              <li><a href="#contact" className="hover:text-violet-300">{t('navLinks.contact')}</a></li>
             </ul>
           </div>
 
           <div>
             <div className="font-mono text-[11px] tracking-[0.25em] uppercase text-zinc-500 mb-4">
-              Sígueme
+              {t('nav.follow')}
             </div>
             <div className="flex items-center gap-3">
               <Social href={profile.socials.github} Icon={Github} />
@@ -51,7 +54,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-500 font-mono">
-          <span>© {new Date().getFullYear()} {profile.name}. Todos los derechos reservados.</span>
+          <span>© {new Date().getFullYear()} {profile.name}. {t('footer.rights')}</span>
         </div>
       </div>
     </footer>

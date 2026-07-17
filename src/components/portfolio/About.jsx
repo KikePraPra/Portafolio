@@ -1,12 +1,15 @@
 import React from "react";
 import { profile } from "../../mock/mock";
 import { Code2, Palette, Ghost } from "lucide-react";
+import { useLanguage } from '../../lib/i18n.jsx'
 
 export default function About() {
+  const { t } = useLanguage()
+
   return (
     <section id="about" className="relative py-24 lg:py-32 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
-        <SectionLabel num="01" label="Sobre mí" />
+        <SectionLabel num="01" label={t('about.label')} />
 
         <div className="mt-10 grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <div className="lg:col-span-5">
@@ -29,15 +32,14 @@ export default function About() {
 
           <div className="lg:col-span-7">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight text-zinc-100">
-              Diseño, dibujo y escribo código{" "}
-              <span className="text-violet-400">con el mismo oficio.</span>
+              {t('about.heading')}
             </h2>
-            <p className="mt-6 text-zinc-400 leading-relaxed text-lg">{profile.longBio}</p>
+            <p className="mt-6 text-zinc-400 leading-relaxed text-lg">{t('profile.longBio')}</p>
 
             <div className="mt-10 grid sm:grid-cols-3 gap-4">
-              <FeatureCard icon={Code2} title="Desarrollo" text="Apps modernas con React y bases de datos robustas." />
-              <FeatureCard icon={Palette} title="Ilustración" text="Arte digital con foco en figura humana, detalle y estética." />
-              <FeatureCard icon={Ghost} title="Producto" text="De la idea al MVP con criterio de diseño y DX." />
+              <FeatureCard icon={Code2} title={t('about.feature1.title')} text={t('about.feature1.text')} />
+              <FeatureCard icon={Palette} title={t('about.feature2.title')} text={t('about.feature2.text')} />
+              <FeatureCard icon={Ghost} title={t('about.feature3.title')} text={t('about.feature3.text')} />
             </div>
           </div>
         </div>

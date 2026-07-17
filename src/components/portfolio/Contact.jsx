@@ -7,16 +7,19 @@ import { Textarea } from "../ui/textarea";
 import { Label } from "../ui/label";
 import { Github, Instagram, Linkedin, Mail, Phone, Send, MapPin } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from '../../lib/i18n.jsx'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
 
+  const { t } = useLanguage()
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!form.name || !form.email || !form.message) {
-      toast.error("Completa todos los campos antes de enviar.");
+      toast.error(t('form.incomplete'));
       return;
     }
 
@@ -42,13 +45,13 @@ export default function Contact() {
       const result = await response.json();
 
       if (result.success) {
-        toast.success("¡Mensaje enviado con éxito! Te responderé pronto.");
+        toast.success(t('form.success'));
         setForm({ name: "", email: "", message: "" });
       } else {
-        toast.error("Hubo un error al enviar. Inténtalo de nuevo.");
+        toast.error(t('form.error'));
       }
     } catch (error) {
-      toast.error("Error de conexión. Revisa tu internet.");
+      toast.error(t('form.connectionError'));
     } finally {
       setSending(false);
     }
@@ -57,25 +60,25 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-24 lg:py-32 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
-        <SectionLabel num="06" label="Contacto" />
+        <SectionLabel num="06" label={t('contact.label')} />
 
         <div className="mt-10 grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
-              ¿Tienes una idea?
+              {t('contact.titleLine1')}
               <br />
               <span className="bg-gradient-to-r from-violet-300 to-indigo-400 bg-clip-text text-transparent">
-                Construyámosla.
+                {t('contact.titleLine2')}
               </span>
             </h2>
             <p className="mt-6 text-zinc-400 leading-relaxed">
-              Siempre abierto a proyectos interesantes, colaboraciones y encargos de ilustración. Escríbeme y te respondo en menos de 48h.
+              {t('contact.paragraph')}
             </p>
 
             <ul className="mt-10 flex flex-col gap-4">
-              <ContactRow icon={Mail} label="Email" value={profile.email} href={`mailto:${profile.email}`} />
-              <ContactRow icon={Phone} label="Teléfono" value={profile.phone} href={`tel:${profile.phone}`} />
-              <ContactRow icon={MapPin} label="Ubicación" value={profile.location} />
+              <ContactRow icon={Mail} label={t('form.email')} value={profile.email} href={`mailto:${profile.email}`} />
+              <ContactRow icon={Phone} label={t('contact.phone')} value={profile.phone} href={`tel:${profile.phone}`} />
+              <ContactRow icon={MapPin} label={t('contact.location')} value={profile.location} />
             </ul>
 
             <div className="mt-10 flex items-center gap-3">
@@ -92,50 +95,50 @@ export default function Contact() {
               className="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-8 backdrop-blur"
             >
               <div className="grid sm:grid-cols-2 gap-5">
-                <Field label="Nombre" id="name">
+                <Field label={t('form.name')} id="name">
                   <Input
                     id="name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="Tu nombre"
+                    placeholder={t('form.placeholderName')}
                     className="bg-zinc-950/60 border-white/10 text-zinc-100 placeholder:text-zinc-600 focus-visible:ring-violet-500/40 focus-visible:border-violet-500/40"
                   />
                 </Field>
-                <Field label="Email" id="email">
+                <Field label={t('form.email')} id="email">
                   <Input
                     id="email"
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    placeholder="tu@email.com"
+                    placeholder={t('form.placeholderEmail')}
                     className="bg-zinc-950/60 border-white/10 text-zinc-100 placeholder:text-zinc-600 focus-visible:ring-violet-500/40 focus-visible:border-violet-500/40"
                   />
                 </Field>
               </div>
               <div className="mt-5">
-                <Field label="Mensaje" id="message">
+                <Field label={t('form.message')} id="message">
                   <Textarea
                     id="message"
                     rows={6}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    placeholder="Cuéntame sobre tu proyecto…"
+                    placeholder={t('form.placeholderMessage')}
                     className="bg-zinc-950/60 border-white/10 text-zinc-100 placeholder:text-zinc-600 focus-visible:ring-violet-500/40 focus-visible:border-violet-500/40"
                   />
                 </Field>
               </div>
               <div className="mt-6 flex items-center justify-between gap-4">
                 <span className="text-xs font-mono text-zinc-500">
-                  Respuesta en ~48h
+                  {t('contact.responseETA')}
                 </span>
                 <Button
                   type="submit"
                   disabled={sending}
                   className="bg-violet-600 hover:bg-violet-500 text-white border-0 h-11 px-6 shadow-lg shadow-violet-900/40"
                 >
-                  {sending ? "Enviando…" : (
+                  {sending ? t('form.sending') : (
                     <span className="inline-flex items-center gap-2">
-                      Enviar mensaje <Send className="h-4 w-4" />
+                      {t('form.send')} <Send className="h-4 w-4" />
                     </span>
                   )}
                 </Button>

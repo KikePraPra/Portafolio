@@ -3,25 +3,26 @@ import { projects } from "../../mock/mock";
 import { SectionLabel } from "./About";
 import { Badge } from "../ui/badge";
 import { ExternalLink, Github } from "lucide-react";
+import { useLanguage } from '../../lib/i18n.jsx'
 
 export default function DevProjects() {
+  const { t, lang } = useLanguage()
   const categories = useMemo(() => {
     const set = new Set(projects.map((p) => p.category));
-    return ["Todos", ...Array.from(set)];
+    return ["all", ...Array.from(set)];
   }, []);
-  const [active, setActive] = useState("Todos");
+  const [active, setActive] = useState("all")
 
-  const filtered = active === "Todos" ? projects : projects.filter((p) => p.category === active);
+  const filtered = active === "all" ? projects : projects.filter((p) => p.category === active);
 
   return (
     <section id="projects" className="relative py-24 lg:py-32 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
-        <SectionLabel num="05" label="Proyectos de Desarrollo" />
+        <SectionLabel num="05" label={t('project.label')} />
 
         <div className="mt-8 flex flex-wrap items-end justify-between gap-6">
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight max-w-2xl">
-            Producto, interfaces y{" "}
-            <span className="text-violet-400">código</span>
+            {t('project.heading')}
           </h2>
           <div className="flex flex-wrap gap-2">
             {categories.map((c) => (
@@ -34,7 +35,7 @@ export default function DevProjects() {
                     : "bg-white/[0.02] border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20"
                 }`}
               >
-                {c}
+                {c === "all" ? t('project.all') : t(`project.categories.${c}`)}
               </button>
             ))}
           </div>
@@ -55,7 +56,7 @@ export default function DevProjects() {
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent" />
                 <div className="absolute top-4 left-4 flex items-center gap-2">
                   <span className="px-2.5 py-1 rounded-md text-[10px] font-mono uppercase tracking-wider bg-zinc-950/70 border border-white/10 text-violet-200 backdrop-blur">
-                    {p.category}
+                    {t(`project.categories.${p.category}`)}
                   </span>
                   <span className="px-2.5 py-1 rounded-md text-[10px] font-mono bg-zinc-950/70 border border-white/10 text-zinc-300 backdrop-blur">
                     {p.year}
@@ -71,7 +72,7 @@ export default function DevProjects() {
                       target="_blank"
                       rel="noreferrer"
                       className="h-8 w-8 grid place-items-center rounded-md border border-white/10 text-zinc-400 hover:text-white hover:border-violet-400/40 hover:bg-white/5 transition-colors"
-                      aria-label="Repository"
+                      aria-label={t('project.repo')}
                     >
                       <Github className="h-4 w-4" />
                     </a>
@@ -80,13 +81,13 @@ export default function DevProjects() {
                       target="_blank"
                       rel="noreferrer"
                       className="h-8 w-8 grid place-items-center rounded-md border border-white/10 text-zinc-400 hover:text-white hover:border-violet-400/40 hover:bg-white/5 transition-colors"
-                      aria-label="Live"
+                      aria-label={t('project.live')}
                     >
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </div>
                 </div>
-                <p className="mt-2.5 text-sm text-zinc-400 leading-relaxed">{p.description}</p>
+                <p className="mt-2.5 text-sm text-zinc-400 leading-relaxed">{p.description[lang] ?? p.description.en}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {p.tech.map((t) => (
                     <Badge

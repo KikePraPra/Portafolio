@@ -3,20 +3,23 @@ import { skills, techStack } from "../../mock/mock";
 import { SectionLabel } from "./About";
 import { Progress } from "../ui/progress";
 import { Badge } from "../ui/badge";
+import { useLanguage } from '../../lib/i18n.jsx'
 
 export default function Skills() {
+  const { t } = useLanguage()
+
   return (
     <section id="skills" className="relative py-24 lg:py-32 px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
-        <SectionLabel num="02" label="Stack & Habilidades" />
+        <SectionLabel num="02" label={t('skills.label')} />
 
         <div className="mt-10 grid lg:grid-cols-2 gap-12 items-start">
           <div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight">
-              Tecnologías que <span className="text-violet-400">domino</span>
+              {t('skills.heading').split(' ').slice(0, 1).join(' ')} <span className="text-violet-400">{t('skills.heading').split(' ').slice(1).join(' ')}</span>
             </h2>
             <p className="mt-4 text-zinc-400 leading-relaxed">
-              Un stack moderno que me permite ir desde una ilustración hasta un producto en producción sin cambiar de guante.
+              {t('skills.paragraph')}
             </p>
 
             <div className="mt-8 space-y-5">
@@ -42,7 +45,7 @@ export default function Skills() {
                 className="rounded-xl border border-white/5 bg-white/[0.02] p-5 hover:border-violet-500/20 transition-colors"
               >
                 <div className="font-mono text-[11px] tracking-[0.25em] uppercase text-violet-300/80 mb-4">
-                  {g.category}
+                  {t(`skills.categories.${g.category}`)}
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {g.items.map((i) => (
